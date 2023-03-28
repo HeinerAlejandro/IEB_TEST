@@ -1,0 +1,9 @@
+[submodule "tcp_socket_template"]
+	path = tcp_socket_template
+	url = https://github.com/HeinerAlejandro/tcp_socket_template.git
+[submodule "tcp_socket_server"]
+	path = tcp_socket_server
+	url = https://github.com/HeinerAlejandro/tcp_socket_server.git
+[submodule "ieb_product_updater"]
+	path = ieb_product_updater
+	url = https://github.com/HeinerAlejandro/ieb_product_updater.git
