@@ -41,15 +41,15 @@ El tercer servicio es un servidor HTTP desarrollado con Django, que cuenta con u
 
 # Socket Client/Server dependencies
 
-![](imgs/project dependencies.png)
+![](imgs/project_dependencies.png)
 
 # Project Folder structure
 
-![](imgs/project folders.png)
+![](imgs/project_folders.png)
 
 # Layer Communication
 
-![](imgs/layer communication.png)
+![](imgs/layer_communication.png)
 
 # Data formats between sockets
 
