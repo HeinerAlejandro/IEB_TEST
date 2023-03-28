@@ -1,41 +1,41 @@
-# Proyecto de Servicios Integrados
+# Integrated Services Project
 
-Este proyecto consta de tres servicios principales que trabajan en conjunto para proporcionar una solución completa. A continuación, se detalla cada uno de los servicios y cómo interactúan entre sí.
+This project consists of three main services that work together to provide a complete solution. The following details each of the services and how they interact with each other.
 
-## Tabla de Contenidos
+## Table of Contents
 
-- [Servicio 1: Socket TCP Cliente](#servicio-1-socket-tcp-cliente)
-- [Servicio 2: Socket TCP Servidor](#servicio-2-socket-tcp-servidor)
-- [Servicio 3: Servidor HTTP Django](#servicio-3-servidor-http-django)
-- [Flujo de Datos](#flujo-de-datos)
-- [Instalación y Configuración](#instalación-y-configuración)
+- Service 1: TCP Socket Client] (#service-1-socket-tcp-client)
+- Service 2: TCP Socket Server](#service-2-socket-tcp-server)
+- Service 3: Django HTTP Server](#service-3-socket-http-django-server)
+- Data Flow](#data-flow)
+- Installation and Configuration](#installation-and-configuration)
 
-## Servicio 1: Socket TCP Cliente
+## Service 1: TCP Socket Client
 
-El primer servicio es un cliente de socket TCP que se encarga de enviar mensajes con un formato específico de texto al Servicio 2 (servidor de socket TCP). Este mensaje puede contener información relacionada con la solicitud de todos los productos o un producto en específico.
+The first service is a TCP socket client that is responsible for sending messages with a specific text format to Service 2 (TCP socket server). This message can contain information related to the request for all products or a specific product.
 
-## Servicio 2: Socket TCP Servidor
+## Service 2: TCP Socket Server
 
-El segundo servicio es un servidor de socket TCP que recibe los mensajes enviados por el Servicio 1 (cliente de socket TCP). En función del mensaje recibido, el servidor de socket TCP realiza solicitudes a los endpoints REST del Servicio 3 (servidor HTTP Django) para obtener todos los productos de la base de datos de Django o un producto específico.
+The second service is a TCP socket server that receives messages sent by Service 1 (TCP socket client). Based on the message received, the TCP socket server makes requests to the REST endpoints of Service 3 (Django HTTP server) to get all products in the Django database or a specific product.
 
-## Servicio 3: Servidor HTTP Django
+## Service 3: Django HTTP server
 
-El tercer servicio es un servidor HTTP desarrollado con Django, que cuenta con una conexión a RabbitMQ y utiliza Celery y Celery Beat para orquestar tareas periódicamente. Este servidor expone los endpoints REST necesarios para que el Servicio 2 pueda obtener la información de los productos.
+The third service is an HTTP server developed with Django, which has a connection to RabbitMQ and uses Celery and Celery Beat to orchestrate tasks periodically. This server exposes the REST endpoints necessary for Service 2 to obtain product information.
 
-## Flujo de Datos
+## Data Flow
 
-1. El Servicio 1 envía un mensaje al Servicio 2 con una solicitud de productos.
-2. El Servicio 2, en función del mensaje recibido, realiza solicitudes a los endpoints REST del Servicio 3.
-3. El Servicio 3 responde con la información solicitada de los productos.
-4. Si el Servicio 2 solicitó un solo producto, lo hará periódicamente y enviará la información actualizada al Servicio 1.
-5. El Servicio 1 revisa las actualizaciones del producto y decide si detener o no el flujo de socket.
+1. Service 1 sends a message to Service 2 with a request for products.
+2. Service 2, based on the message received, makes requests to Service 3's REST endpoints.
+3. Service 3 responds with the requested product information.
+4. If Service 2 requested a single product, it will do so periodically and send the updated information to Service 1.
+5. Service 1 reviews the product updates and decides whether or not to stop the socket flow.
 
-## Instalación y Configuración
+## Installation and Configuration
 
-*Describa aquí los pasos para instalar y configurar cada uno de los servicios, incluidos los requisitos previos, las dependencias y las configuraciones específicas.*
+*Describe here the steps to install and configure each of the services, including prerequisites, dependencies and specific configurations.
 
 
-# IEB Solution for de problem:
+## IEB Solution for de problem:
 
 ![](imgs/ieb_solution_diagram.png)
 
@@ -53,6 +53,6 @@ El tercer servicio es un servidor HTTP desarrollado con Django, que cuenta con u
 
 # Data formats between sockets
 
-![](imgs/data_structure_between_s1_s1.png)
+![](imgs/data_structure_between_s1_s2.png)
 
 ---
